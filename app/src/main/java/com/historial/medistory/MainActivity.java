@@ -1,8 +1,11 @@
 package com.historial.medistory;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,8 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener,
+        PerfilFragment.OnFragmentInteractionListener,HistorialFragment.OnFragmentInteractionListener,QrFragment.OnFragmentInteractionListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,19 +74,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        android.support.v4.app.Fragment fragment = null;
+        FragmentManager fm = getSupportFragmentManager();
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            fm.beginTransaction().replace(R.id.Contenedor, new PerfilFragment()).commit();
+            //fragment=new PerfilFragment();
         } else if (id == R.id.nav_gallery) {
+            fm.beginTransaction().replace(R.id.Contenedor, new HistorialFragment()).commit();
 
         } else if (id == R.id.nav_slideshow) {
+            fm.beginTransaction().replace(R.id.Contenedor, new QrFragment()).commit();
 
         } else if (id == R.id.nav_manage) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

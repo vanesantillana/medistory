@@ -108,6 +108,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
+        else if(a.equals("doctor@gmail.com") && b.equals("123")){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
         else{
             Toast.makeText(this, "Los datos son incorrectos", Toast.LENGTH_SHORT).show();
         }
