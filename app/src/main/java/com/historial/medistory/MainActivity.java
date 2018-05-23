@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.Contenedor, new QrFragment()).commit();
 
         } else if (id == R.id.nav_manage) {
+            Intent intent = new Intent(this, DetalleActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
