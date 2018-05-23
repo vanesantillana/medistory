@@ -5,9 +5,30 @@
     tools:context="com.historial.medistory.HistorialFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="mi historial" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:hapticFeedbackEnabled="false"
+            android:padding="15dp"
+            android:text="Mi historial"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <ListView
+            android:id="@+id/lista"
+            style="@style/Widget.AppCompat.Light.ListView.DropDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </FrameLayout>
