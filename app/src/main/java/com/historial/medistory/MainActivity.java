@@ -76,16 +76,29 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         android.support.v4.app.Fragment fragment = null;
         FragmentManager fm = getSupportFragmentManager();
-        if (id == R.id.nav_camera) {
+        if (id == R.id.menu_paciente_perfil) {
             fm.beginTransaction().replace(R.id.Contenedor, new PerfilFragment()).commit();
             //fragment=new PerfilFragment();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.menu_paciente_historial) {
             fm.beginTransaction().replace(R.id.Contenedor, new HistorialFragment()).commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.menu_paciente_qr) {
             fm.beginTransaction().replace(R.id.Contenedor, new QrFragment()).commit();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.menu_paciente_config) {
+            Intent intent = new Intent(this, DetalleActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.menu_doctor_perfil) {
+            fm.beginTransaction().replace(R.id.Contenedor, new HistorialFragment()).commit();
+
+        } else if (id == R.id.menu_doctor_pacientes) {
+            fm.beginTransaction().replace(R.id.Contenedor, new QrFragment()).commit();
+
+        } else if (id == R.id.menu_doctor_qr) {
+            Intent intent = new Intent(this, DetalleActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.menu_doctor_config) {
             Intent intent = new Intent(this, DetalleActivity.class);
             startActivity(intent);
         }
