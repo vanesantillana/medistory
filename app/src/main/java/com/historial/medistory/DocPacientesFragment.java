@@ -1,39 +1,27 @@
 package com.historial.medistory;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import me.dm7.barcodescanner.zbar.Result;
-import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link QrFragment.OnFragmentInteractionListener} interface
+ * {@link DocPacientesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link QrFragment#newInstance} factory method to
+ * Use the {@link DocPacientesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QrFragment extends Fragment implements ZBarScannerView.ResultHandler{
+public class DocPacientesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private ZBarScannerView mScannerView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -41,7 +29,7 @@ public class QrFragment extends Fragment implements ZBarScannerView.ResultHandle
 
     private OnFragmentInteractionListener mListener;
 
-    public QrFragment() {
+    public DocPacientesFragment() {
         // Required empty public constructor
     }
 
@@ -51,11 +39,11 @@ public class QrFragment extends Fragment implements ZBarScannerView.ResultHandle
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QrFragment.
+     * @return A new instance of fragment DocPacientesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static QrFragment newInstance(String param1, String param2) {
-        QrFragment fragment = new QrFragment();
+    public static DocPacientesFragment newInstance(String param1, String param2) {
+        DocPacientesFragment fragment = new DocPacientesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,11 +63,8 @@ public class QrFragment extends Fragment implements ZBarScannerView.ResultHandle
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mScannerView = new ZBarScannerView(getActivity());
-        setHasOptionsMenu(true);
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_qr, container, false);
-        return mScannerView;
+        return inflater.inflate(R.layout.fragment_doc_pacientes, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -119,29 +104,5 @@ public class QrFragment extends Fragment implements ZBarScannerView.ResultHandle
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getActivity().setTitle("Modo de lectura");
-        mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
-        mScannerView.startCamera();          // Start camera on resume
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mScannerView.stopCamera();           // Stop camera on pause
-    }
-
-    @Override
-    public void handleResult(Result rawResult) {
-        Log.v("", rawResult.getContents()); // Prints scan results
-        Log.v("", rawResult.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
-        Toast.makeText(getActivity(), "Código: "+ rawResult.getContents() +
-                "\n Tipo:" + rawResult.getBarcodeFormat().getName() , Toast.LENGTH_SHORT).show();
-
-        mScannerView.resumeCameraPreview(this);
     }
 }

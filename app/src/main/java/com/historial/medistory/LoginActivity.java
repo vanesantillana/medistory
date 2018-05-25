@@ -6,6 +6,8 @@ import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +73,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        TextView textView = (TextView) findViewById(R.id.appname);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Damion-Regular.ttf");
+        textView.setTypeface(typeface);
         // Set up the login form.
         /*
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -104,12 +109,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         pass = (EditText) findViewById(R.id.pass);
         String a=user.getText().toString();
         String b=pass.getText().toString();
-        if(a.equals("user@gmail.com") && b.equals("123")){
+        Boolean type = true;
+        if(a.equals("user@gmail.com")  && b.equals("123")){
             Intent intent = new Intent(this, MainActivity.class);
+            type= true;
+            intent.putExtra("type", type);
             startActivity(intent);
         }
         else if(a.equals("doctor@gmail.com") && b.equals("123")){
             Intent intent = new Intent(this, MainActivity.class);
+            type= false;
+            intent.putExtra("type", type);
             startActivity(intent);
         }
         else{
