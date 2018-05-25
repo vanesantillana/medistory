@@ -3,34 +3,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/menu_paciente_perfil"
             android:icon="@drawable/ic_perfil"
-            android:title="Mi perfil" />
+            android:title="Mi perfil"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/menu_paciente_historial"
             android:icon="@drawable/ic_historial"
-            android:title="Mi Historial" />
+            android:title="Mi Historial"/>
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/menu_paciente_qr"
             android:icon="@drawable/ic_qr"
-            android:title="Mi Código QR" />
+            android:title="Mi Código QR"/>
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/menu_paciente_config"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Configuración" />
+            android:title="Configuración"/>
+
+        <item
+            android:id="@+id/menu_doctor_perfil"
+            android:icon="@drawable/ic_perfil"
+            android:title="Mi perfil"/>
+        <item
+            android:id="@+id/menu_doctor_pacientes"
+            android:icon="@drawable/ic_historial"
+            android:title="Mis Pacientes"/>
+        <item
+            android:id="@+id/menu_doctor_qr"
+            android:icon="@drawable/ic_qr"
+            android:title="Mi Código QR"/>
     </group>
-<!--
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>-->
 
 </menu>
