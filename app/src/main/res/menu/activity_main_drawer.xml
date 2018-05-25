@@ -5,38 +5,32 @@
         <item
             android:id="@+id/menu_paciente_perfil"
             android:icon="@drawable/ic_perfil"
-            android:title="Mi perfil" />
+            android:title="Mi perfil"/>
         <item
             android:id="@+id/menu_paciente_historial"
             android:icon="@drawable/ic_historial"
-            android:title="Mi Historial" />
+            android:title="Mi Historial"/>
         <item
             android:id="@+id/menu_paciente_qr"
             android:icon="@drawable/ic_qr"
-            android:title="Mi Código QR" />
+            android:title="Mi Código QR"/>
         <item
             android:id="@+id/menu_paciente_config"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Configuración" />
-    </group>
+            android:title="Configuración"/>
 
-    <item android:title="Communicate">
         <item
             android:id="@+id/menu_doctor_perfil"
             android:icon="@drawable/ic_perfil"
-            android:title="Mi perfil" />
+            android:title="Mi perfil"/>
         <item
             android:id="@+id/menu_doctor_pacientes"
             android:icon="@drawable/ic_historial"
-            android:title="Mis Pacientes" />
+            android:title="Mis Pacientes"/>
         <item
             android:id="@+id/menu_doctor_qr"
             android:icon="@drawable/ic_qr"
-            android:title="Mi Código QR" />
-        <item
-            android:id="@+id/menu_doctor_config"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Configuración" />
-    </item>
+            android:title="Mi Código QR"/>
+    </group>
 
 </menu>
