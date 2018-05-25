@@ -10,15 +10,5 @@
     tools:showIn="@layout/app_bar_main">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="80px"
-        android:textColor="#a9b3b3"
-        android:text="Bienvenido"
-        android:paddingTop="430px"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp" />
+
 </android.support.constraint.ConstraintLayout>
