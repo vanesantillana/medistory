@@ -1,12 +1,18 @@
 package com.historial.medistory;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -63,8 +69,45 @@ public class HistorialFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_historial, container, false);
+        View view = inflater.inflate(R.layout.fragment_historial,container,false);
+        ArrayList<String> data= new ArrayList<>();
+        data.add("Retiro de muela");
+        data.add("Caries");
+        data.add("Limpieza");
+        data.add("Caries");
+        data.add("Limpieza");
+        data.add("Retiro de muela");
+        data.add("Caries");
+        data.add("Limpieza");
+        data.add("Retiro de muela");
+        data.add("Caries");
+        data.add("Limpieza");
+        data.add("Caries");
+        data.add("Limpieza");
+        data.add("Caries");
+        data.add("Limpieza");
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
+                getContext(),
+                R.layout.fila_lista,
+                R.id.nombre_fila_lista,
+
+                data
+        );
+        ListView lvData = (ListView) view.findViewById(R.id.lista);
+        lvData.setAdapter(adapter1);
+        lvData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getActivity().getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext() , DetalleActivity.class);
+                getContext().startActivity(intent);
+
+            }
+        });
+
+        return view;
+        //return inflater.inflate(R.layout.fragment_historial, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
